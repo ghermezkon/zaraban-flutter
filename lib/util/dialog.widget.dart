@@ -19,7 +19,7 @@ class ZDialog extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.all(24.0),
+                    padding: EdgeInsets.all(10.0),
                     child: Directionality(
                       textDirection: TextDirection.rtl,
                       child: Row(
