@@ -13,11 +13,17 @@ class TypeCaptionPage extends StatefulWidget {
 
 //--------------------------------------------------------
 class TypeCaptionPageState extends State<TypeCaptionPage> {
+  //==========================================
+  var bloc;
+  @override
+  void initState() {
+    super.initState();
+    bloc = BlocProvider.of<TypeCaptionBloc>(context);
+  }
+
+  //==========================================
   @override
   Widget build(BuildContext context) {
-    //-------------------------------------------------------
-    final bloc = BlocProvider.of<TypeCaptionBloc>(context);
-    //-------------------------------------------------------
     return Scaffold(
       appBar: AppBar(
         title: Text(MainTcHeaderLBL),
@@ -37,17 +43,15 @@ class TypeCaptionPageState extends State<TypeCaptionPage> {
       body: Center(
         child: Column(
           children: <Widget>[
-            Expanded(
-              flex: 2,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.lightBlue[600],
-                ),
-                child: Row(
-                  children: <Widget>[
-                    ZRectangleMenu('tc', MainTcTitle, MainTcSubTitle),
-                  ],
-                ),
+            Container(
+              height: 160.0,
+              decoration: BoxDecoration(
+                color: Colors.lightBlue[600],
+              ),
+              child: Row(
+                children: <Widget>[
+                  ZRectangleMenu('tc', MainTcTitle, MainTcSubTitle),
+                ],
               ),
             ),
             Expanded(

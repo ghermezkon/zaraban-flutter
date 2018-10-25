@@ -13,11 +13,17 @@ class CityPage extends StatefulWidget {
 
 //--------------------------------------------------------
 class CityPageState extends State<CityPage> {
+  //==========================================
+  var bloc;
+  @override
+  void initState() {
+    super.initState();
+    bloc = BlocProvider.of<CityBloc>(context);
+  }
+
+  //==========================================
   @override
   Widget build(BuildContext context) {
-    //-------------------------------------------------------
-    final bloc = BlocProvider.of<CityBloc>(context);
-    //-------------------------------------------------------
     return Scaffold(
       appBar: AppBar(
         title: Text(MainCityHeaderLBL),
@@ -37,17 +43,15 @@ class CityPageState extends State<CityPage> {
       body: Center(
         child: Column(
           children: <Widget>[
-            Expanded(
-              flex: 2,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.lightBlue[600],
-                ),
-                child: Row(
-                  children: <Widget>[
-                    ZRectangleMenu('city', MainCityTitle, MainCitySubTitle),
-                  ],
-                ),
+            Container(
+              height: 160.0,
+              decoration: BoxDecoration(
+                color: Colors.lightBlue[600],
+              ),
+              child: Row(
+                children: <Widget>[
+                  ZRectangleMenu('city', MainCityTitle, MainCitySubTitle),
+                ],
               ),
             ),
             Expanded(

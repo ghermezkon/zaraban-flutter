@@ -22,7 +22,7 @@ class ZRectangleMenu extends StatelessWidget {
             Expanded(
               flex: 4,
               child: Card(
-                //margin: EdgeInsets.all(20.0),
+                margin: EdgeInsets.all(20.0),
                 child: Column(
                   children: <Widget>[
                     Expanded(
