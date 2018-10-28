@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+//تعریف انواع تخصص. به عنوان مثال پزششک قبارای تخصص جراجی عروق
 class TypeCaptionEntity {
   String id;
   String tcCode;

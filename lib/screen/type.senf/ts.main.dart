@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:zaraban/provider/bloc.provider.dart';
-import 'package:zaraban/screen/ostan/ostan.bloc.dart';
-import 'package:zaraban/screen/ostan/ostan.input.dart';
+import 'package:zaraban/screen/type.senf/ts.input.dart';
+import 'package:zaraban/screen/type.senf/type.senf.bloc.dart';
 import 'package:zaraban/util/const.text.dart';
 import 'package:zaraban/util/global.widget.dart';
 
 //--------------------------------------------------------
-class OstanPage extends StatefulWidget {
+class TypeSenfPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => OstanPageState();
+  State<StatefulWidget> createState() => TypeSenfPageState();
 }
 
 //--------------------------------------------------------
-class OstanPageState extends State<OstanPage> {
+class TypeSenfPageState extends State<TypeSenfPage> {
   //==========================================
   var bloc;
   @override
   void initState() {
     super.initState();
-    bloc = BlocProvider.of<OstanBloc>(context);
+    bloc = BlocProvider.of<TypeSenfBloc>(context);
   }
+
   //==========================================
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(MainOstanHeaderLBL),
+        title: Text(MainTsHeaderLBL),
         centerTitle: true,
         elevation: 0.0,
       ),
@@ -35,7 +36,7 @@ class OstanPageState extends State<OstanPage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             ZBottomBarMenu(
-                'ostan', OstanListLBL, () => bloc.bottomMenuClick(context)),
+                'ts', TsListLBL, () => bloc.bottomMenuClick(context)),
           ],
         ),
       ),
@@ -49,14 +50,14 @@ class OstanPageState extends State<OstanPage> {
               ),
               child: Row(
                 children: <Widget>[
-                  ZRectangleMenu('ostan', MainOstanTitle, MainOstanSubTitle),
+                  ZRectangleMenu('ts', MainTsTitle, MainTsSubTitle),
                 ],
               ),
             ),
             Expanded(
               flex: 4,
               child: Container(
-                child: OstanInput(
+                child: TypeSenfInput(
                   bloc: bloc,
                 ),
               ),

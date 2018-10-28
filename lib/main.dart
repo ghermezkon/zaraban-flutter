@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:zaraban/bloc/application.bloc.dart';
-import 'package:zaraban/bloc/city.bloc.dart';
-import 'package:zaraban/bloc/ostan.bloc.dart';
-import 'package:zaraban/bloc/type.caption.bloc.dart';
 import 'package:zaraban/drawer/drawer.dart';
 import 'package:zaraban/home/home.dart';
 import 'package:zaraban/provider/bloc.provider.dart';
+import 'package:zaraban/screen/city/city.bloc.dart';
 import 'package:zaraban/screen/city/city.main.dart';
+import 'package:zaraban/screen/ostan/ostan.bloc.dart';
 import 'package:zaraban/screen/ostan/ostan.main.dart';
 import 'package:zaraban/screen/type.caption/tc.main.dart';
+import 'package:zaraban/screen/type.caption/type.caption.bloc.dart';
+import 'package:zaraban/screen/type.senf/ts.main.dart';
+import 'package:zaraban/screen/type.senf/type.senf.bloc.dart';
 import 'package:zaraban/util/global.theme.dart';
 
 void main() async {
@@ -41,6 +43,10 @@ class MyApp extends StatelessWidget {
         '/tc': (context) => BlocProvider<TypeCaptionBloc>(
               bloc: TypeCaptionBloc(),
               child: TypeCaptionPage(),
+            ),
+        '/ts': (context) => BlocProvider<TypeSenfBloc>(
+              bloc: TypeSenfBloc(),
+              child: TypeSenfPage(),
             ),
       },
       theme: ThemeData(

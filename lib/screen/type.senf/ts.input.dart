@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:zaraban/screen/type.caption/type.caption.bloc.dart';
+import 'package:zaraban/screen/type.senf/type.senf.bloc.dart';
 import 'package:zaraban/util/const.text.dart';
 import 'package:zaraban/util/dialog.widget.dart';
 import 'package:zaraban/util/global.theme.dart';
 
-class TypeCaptionInput extends StatefulWidget {
-  final TypeCaptionBloc bloc;
-  TypeCaptionInput({Key key, this.bloc}) : super(key: key);
+class TypeSenfInput extends StatefulWidget {
+  final TypeSenfBloc bloc;
+  TypeSenfInput({Key key, this.bloc}) : super(key: key);
   @override
-  State<StatefulWidget> createState() => _TypeCaptionInputState();
+  State<StatefulWidget> createState() => _TypeSenfInputState();
 }
 
-class _TypeCaptionInputState extends State<TypeCaptionInput> {
+class _TypeSenfInputState extends State<TypeSenfInput> {
   //------------------------------------------------------
-  final tcCodeController = TextEditingController();
-  final tcNameController = TextEditingController();
+  final tsCodeController = TextEditingController();
+  final tsNameController = TextEditingController();
+  final tsIconController = TextEditingController();
   //------------------------------------------------------
   @override
   Widget build(BuildContext context) {
@@ -36,15 +37,15 @@ class _TypeCaptionInputState extends State<TypeCaptionInput> {
             children: <Widget>[
               ListTile(
                 title: StreamBuilder(
-                  stream: widget.bloc.streamTcCode,
+                  stream: widget.bloc.streamTsCode,
                   builder: (context, snapshot) {
-                    tcCodeController.text = snapshot.data;
+                    tsCodeController.text = snapshot.data;
                     return Directionality(
                       textDirection: TextDirection.rtl,
                       child: TextFormField(
-                        controller: tcCodeController,
+                        controller: tsCodeController,
                         textAlign: TextAlign.center,
-                        onFieldSubmitted: widget.bloc.sinkTcCode,
+                        onFieldSubmitted: widget.bloc.sinkTsCode,
                         keyboardType: TextInputType.number,
                         inputFormatters: [
                           WhitelistingTextInputFormatter.digitsOnly,
@@ -60,8 +61,8 @@ class _TypeCaptionInputState extends State<TypeCaptionInput> {
                               color: zBorderColor(),
                             ),
                           ),
-                          hintText: TcCodeHINT,
-                          labelText: TcCodeLBL,
+                          hintText: TsCodeHINT,
+                          labelText: TsCodeLBL,
                           errorText: snapshot.error,
                         ),
                       ),
@@ -73,13 +74,13 @@ class _TypeCaptionInputState extends State<TypeCaptionInput> {
                 title: Directionality(
                   textDirection: TextDirection.rtl,
                   child: StreamBuilder(
-                    stream: widget.bloc.streamTcName,
+                    stream: widget.bloc.streamTsName,
                     builder: (context, snapshot) {
-                      tcNameController.text = snapshot.data;
+                      tsNameController.text = snapshot.data;
                       return TextFormField(
-                        controller: tcNameController,
+                        controller: tsNameController,
                         textAlign: TextAlign.right,
-                        onFieldSubmitted: widget.bloc.sinkTcName,
+                        onFieldSubmitted: widget.bloc.sinkTsName,
                         decoration: InputDecoration(
                           icon: Icon(
                             Icons.text_fields,
@@ -90,8 +91,38 @@ class _TypeCaptionInputState extends State<TypeCaptionInput> {
                               color: zBorderColor(),
                             ),
                           ),
-                          hintText: TcNameHINT,
-                          labelText: TcNameLBL,
+                          hintText: TsNameHINT,
+                          labelText: TsNameLBL,
+                          errorText: snapshot.error,
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+              ListTile(
+                title: Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: StreamBuilder(
+                    stream: widget.bloc.streamTsIcon,
+                    builder: (context, snapshot) {
+                      tsIconController.text = snapshot.data;
+                      return TextFormField(
+                        controller: tsIconController,
+                        textAlign: TextAlign.center,
+                        onFieldSubmitted: widget.bloc.sinkTsIcon,
+                        decoration: InputDecoration(
+                          icon: Icon(
+                            Icons.link,
+                            color: zIconColor(),
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: zBorderColor(),
+                            ),
+                          ),
+                          hintText: TsIconHINT,
+                          labelText: TsIconLBL,
                           errorText: snapshot.error,
                         ),
                       );
@@ -135,7 +166,7 @@ class _TypeCaptionInputState extends State<TypeCaptionInput> {
   }
 
   //------------------------------------------------------------
-  _showAlert(BuildContext context, TypeCaptionBloc bloc) {
+  _showAlert(BuildContext context, TypeSenfBloc bloc) {
     bloc.save();
     showDialog(
       barrierDismissible: false,
@@ -148,19 +179,20 @@ class _TypeCaptionInputState extends State<TypeCaptionInput> {
   }
 
 //------------------------------------------------------------
-  clearForm(TypeCaptionBloc bloc, bool alert) {
+  clearForm(TypeSenfBloc bloc, bool alert) {
     bloc.clearTextField();
-    tcCodeController.clear();
-    tcNameController.clear();
-    if(alert)
-      Navigator.of(context).pop(context);
+    tsCodeController.clear();
+    tsNameController.clear();
+    tsIconController.clear();
+    if (alert) Navigator.of(context).pop(context);
   }
 
   //------------------------------------------------------------
   @override
   void dispose() {
     super.dispose();
-    tcCodeController.dispose();
-    tcNameController.dispose();
+    tsCodeController.dispose();
+    tsNameController.dispose();
+    tsIconController.dispose();
   }
 }

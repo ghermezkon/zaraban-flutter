@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:zaraban/bloc/ostan.bloc.dart';
+import 'package:zaraban/screen/ostan/ostan.bloc.dart';
 import 'package:zaraban/util/const.text.dart';
 import 'package:zaraban/util/dialog.widget.dart';
 import 'package:zaraban/util/global.theme.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:zaraban/bloc/type.caption.bloc.dart';
 import 'package:zaraban/provider/bloc.provider.dart';
 import 'package:zaraban/screen/type.caption/tc.input.dart';
+import 'package:zaraban/screen/type.caption/type.caption.bloc.dart';
 import 'package:zaraban/util/const.text.dart';
 import 'package:zaraban/util/global.widget.dart';
 

@@ -18,9 +18,13 @@ class MyDrawer extends StatelessWidget {
     DrawerItem(
         itemName: 'تعریف شهر', itemIcon: zNewIcon('city'), routeName: '/city'),
     DrawerItem(
-        itemName: 'تعریف تخصص های پزشکی',
+        itemName: 'تعریف انواع تخصص/عنوان ',
         itemIcon: zNewIcon('tc'),
         routeName: '/tc'),
+    DrawerItem(
+        itemName: 'تعریف انواع صنف/پزشک/شغل',
+        itemIcon: zNewIcon('ts'),
+        routeName: '/ts'),
     DrawerItem(itemName: 'تعریف پزشک', itemIcon: zNewIcon('doctor')),
     DrawerItem(itemName: 'تعاریف اولیه مطب', itemIcon: zNewIcon('matab')),
     DrawerItem(itemName: 'تعریف تکمیلی مطب', itemIcon: zNewIcon('matabMore')),

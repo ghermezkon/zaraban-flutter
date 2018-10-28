@@ -44,6 +44,9 @@ IconData zNewIcon(String name) {
     case 'doctor':
       iconCode = 0xe90c;
       break;
+    case 'ts':
+      iconCode = 0xe90b;
+      break;
     case 'eyeDoctor':
       iconCode = 0xe903;
       break;

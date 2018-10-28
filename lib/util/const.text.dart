@@ -28,6 +28,18 @@ const SearchTcLBL = 'جستجوی تخصص ها ...';
 const MainTcTitle = 'انواع تخصص ها';
 const MainTcSubTitle = 'تعریف و ویرایش انواع تخصص';
 const MainTcHeaderLBL = 'تعریف انواع تخصص ';
+//------------- Type Senf--------------------------------------
+const TsCodeLBL = 'کد صنف';
+const TsCodeHINT = 'کد انواع صنف ها';
+const TsNameLBL = 'عنوان صنف';
+const TsNameHINT = 'عنوان انواع صنف ها';
+const TsIconLBL = 'آیکن/ارجاع';
+const TsIconHINT = 'عنوان آیکن/ارجاع';
+const TsListLBL = 'لیست انواع صنف ها';
+const SearchTsLBL = 'جستجوی صنف ها ...';
+const MainTsTitle = 'انواع صنف ها';
+const MainTsSubTitle = 'تعریف و ویرایش انواع صنف';
+const MainTsHeaderLBL = 'تعریف انواع صنف ';
 //---------------------Button Label----------------------------
 const SaveButtonLBL = 'ذخیره و ارسال';
 //---------------------Save Message----------------------------
